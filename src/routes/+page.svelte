@@ -4,11 +4,8 @@
 	import { base } from '$app/paths';
 
 	onMount(() => {
-		console.log('Base path:', base);
-		const target = `${base}/log`;
-		console.log('Navigating to:', target);
-		goto(target);
+		goto(`${base}/log`);
 	});
 </script>
 
-<p>Redirecting to {base}/log…</p>
+<p>Redirecting…</p>
