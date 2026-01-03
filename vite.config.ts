@@ -9,12 +9,12 @@ export default defineConfig({
 			registerType: 'autoUpdate',
 			injectRegister: 'auto',
 			manifest: {
-				id: '/',
+				id: '/ptg-activity-tracker/',
 				name: 'PTG',
 				short_name: 'PTG',
 				description: 'Daily training scoring and tracking.',
-				start_url: '/',
-				scope: '/',
+				start_url: '/ptg-activity-tracker/',
+				scope: '/ptg-activity-tracker/',
 				display: 'standalone',
 				background_color: '#f9fafb',
 				theme_color: '#111827',
@@ -40,8 +40,8 @@ export default defineConfig({
 				]
 			},
 			workbox: {
-				navigateFallback: '/',
-				additionalManifestEntries: [{ url: '/', revision: null }],
+				navigateFallback: '/ptg-activity-tracker/',
+				additionalManifestEntries: [{ url: '/ptg-activity-tracker/', revision: null }],
 				navigateFallbackDenylist: [
 					/^\/api\//,
 					/\/assets\//,
