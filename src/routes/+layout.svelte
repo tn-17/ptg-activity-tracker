@@ -2,6 +2,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Nav from '$lib/components/Nav.svelte';
 	import PwaReloadPrompt from '$lib/components/PwaReloadPrompt.svelte';
+	import { base } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -9,14 +10,14 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 
-	<link rel="manifest" href="/manifest.webmanifest" />
+	<link rel="manifest" href="{base}/manifest.webmanifest" />
 	<meta name="theme-color" content="#111827" />
 
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="apple-mobile-web-app-title" content="PTG" />
-	<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" href="{base}/icons/apple-touch-icon.png" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
