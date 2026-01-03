@@ -139,6 +139,9 @@
 
 	function toggle(key: ActivityKey, checked: boolean) {
 		completed = { ...completed, [key]: checked };
+
+		// Checkbox toggles are discrete actions; persist immediately.
+		void flushPendingSave();
 	}
 
 	function setCount(key: ActivityKey, count: number) {
