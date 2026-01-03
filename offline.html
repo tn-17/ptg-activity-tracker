@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Offline</title>
+		<style>
+			:root {
+				font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+				background: #f9fafb;
+				color: #111827;
+			}
+			body {
+				margin: 0;
+				padding: 24px;
+			}
+			.card {
+				max-width: 640px;
+				margin: 0 auto;
+				background: #ffffff;
+				border: 1px solid #e5e7eb;
+				border-radius: 12px;
+				padding: 16px;
+			}
+			p {
+				color: #374151;
+			}
+			button {
+				appearance: none;
+				border: 1px solid #111827;
+				background: #111827;
+				color: white;
+				padding: 10px 14px;
+				border-radius: 10px;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<h1>You’re offline</h1>
+			<p>The app is still available offline after it has been opened once. Try going back, or reconnect and refresh.</p>
+			<button onclick="location.reload()">Retry</button>
+		</div>
+	</body>
+</html>
