@@ -8,19 +8,19 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/ptg-activity-tracker/apple-touch-icon.png" />
 		<link rel="manifest" href="/ptg-activity-tracker/manifest.webmanifest" />
 		
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/entry/start.PqaYtxdi.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/awQBRni4.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/BTsEBZ5s.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/C7vlJ78E.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/D3y6TuXk.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/entry/app.Djy2e9BZ.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/entry/start.BjrGqtU8.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/DG72yJkt.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/QHsq6-My.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/BfY_4uY3.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/C8drYok3.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/entry/app.Bmg80vnJ.js">
 		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/PPVm8Dsz.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/CHUMBAvc.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/N6BBi94v.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/CJ8-a8LZ.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/vtm1fa-L.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/D7EURbZm.js">
-		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/Cqhsq0cz.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/Bu0Oie1f.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/9GAoCIU5.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/DcfGaW49.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/DDK3JoqH.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/Cyk_RslH.js">
+		<link rel="modulepreload" href="/ptg-activity-tracker/app/immutable/chunks/i3zO5i4S.js">
 		<script>
 			(() => {
 				try {
@@ -36,36 +36,48 @@
 		</script>
 		<style>
 			:root {
-				--bg: #f9fafb;
+				/* Design tokens */
+				--bg: #f4f4f5;
 				--surface: #ffffff;
-				--text: #111827;
-				--muted: #6b7280;
-				--border: #e5e7eb;
-				--primary: #111827;
+				--text: #09090b;
+				--muted: #52525b;
+				--border: #a1a1aa;
+				--primary: #2563eb;
 				--primary-text: #ffffff;
+				--radius: 4px;
+
+				/* Typography */
+				--font-body: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+				--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
 				color-scheme: light;
-				font-family:
-					system-ui,
-					-apple-system,
-					Segoe UI,
-					Roboto,
-					Helvetica,
-					Arial,
-					sans-serif;
+				font-family: var(--font-body);
 				background: var(--bg);
 				color: var(--text);
 			}
 
 			:root[data-theme='dark'] {
-				--bg: #000000;
-				--surface: #0a0a0a;
-				--text: #f9fafb;
-				--muted: #9ca3af;
-				--border: #1f2937;
-				--primary: #f9fafb;
-				--primary-text: #000000;
+				--bg: #09090b;
+				--surface: #18181b;
+				--text: #f4f4f5;
+				--muted: #a1a1aa;
+				--border: #3f3f46;
+				--primary: #3b82f6;
+				--primary-text: #ffffff;
 				color-scheme: dark;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			*::selection {
+				background: color-mix(in srgb, var(--primary) 25%, transparent);
+			}
+
+			*:focus-visible {
+				outline: 2px solid var(--primary);
+				outline-offset: 2px;
 			}
 
 			body {
@@ -74,6 +86,7 @@
 				color: var(--text);
 				min-height: 100vh;
 				min-height: 100dvh;
+				line-height: 1.4;
 			}
 
 			a {
@@ -86,13 +99,20 @@
 			button {
 				font: inherit;
 			}
+
+			/* Prefer visible borders over browser defaults */
+			input,
+			select,
+			textarea {
+				accent-color: var(--primary);
+			}
 		</style>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1hfwxzp = {
+					__sveltekit_17ed2nv = {
 						base: "/ptg-activity-tracker",
 						assets: "/ptg-activity-tracker"
 					};
@@ -100,8 +120,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/ptg-activity-tracker/app/immutable/entry/start.PqaYtxdi.js"),
-						import("/ptg-activity-tracker/app/immutable/entry/app.Djy2e9BZ.js")
+						import("/ptg-activity-tracker/app/immutable/entry/start.BjrGqtU8.js"),
+						import("/ptg-activity-tracker/app/immutable/entry/app.Bmg80vnJ.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
