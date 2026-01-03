@@ -18,7 +18,7 @@
 		"format": "prettier --write .",
 		"test:e2e": "playwright test",
 		"test": "npm run test:e2e",
-		"predeploy": "npm run build",
+		"predeploy": "npm run build && node scripts/post-build.js",
 		"deploy": "gh-pages -d build -t"
 	},
 	"devDependencies": {
