@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PTG maskable">
+  <!-- Full-bleed background for maskable icons -->
+  <rect width="512" height="512" fill="#f9fafb" />
+
+  <!-- Inner content stays within generous safe area -->
+  <g
+    fill="none"
+    stroke="#111827"
+    stroke-width="56"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M152 140 V372" />
+    <path d="M152 168 H252 Q316 168 316 232 Q316 296 252 296 H152" />
+
+    <path d="M344 140 H440" />
+    <path d="M392 140 V372" />
+
+    <path d="M344 316 Q344 372 288 372 Q232 372 232 316 Q232 260 288 260 Q344 260 344 316" />
+    <path d="M344 316 H398" />
+  </g>
+</svg>
