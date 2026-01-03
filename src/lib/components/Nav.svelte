@@ -76,40 +76,79 @@
 <style>
 	.nav {
 		display: flex;
-		gap: 16px;
+		gap: 12px;
 		align-items: center;
 		justify-content: space-between;
-		padding: 12px 16px;
+		padding: 10px 16px;
 		border-bottom: 1px solid var(--border);
 		background: var(--bg);
+		position: sticky;
+		top: 0;
+		z-index: 10;
 	}
+
 	.links {
 		display: flex;
-		gap: 16px;
+		gap: 8px;
 		align-items: center;
+		padding: 3px;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: color-mix(in srgb, var(--surface) 70%, var(--bg));
 	}
+
 	.nav a {
 		text-decoration: none;
-		color: inherit;
-		font-weight: 600;
+		color: var(--text);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-size: 12px;
+		padding: 8px 10px;
+		border-radius: calc(var(--radius) - 1px);
 	}
+
+	.nav a:hover {
+		background: color-mix(in srgb, var(--surface) 85%, var(--text));
+	}
+
 	.nav a.active {
-		text-decoration: underline;
-		text-underline-offset: 4px;
+		background: var(--text);
+		color: var(--bg);
 	}
+
 	.theme {
 		border: 1px solid var(--border);
 		background: var(--surface);
 		color: var(--text);
-		padding: 6px 10px;
-		border-radius: 999px;
-		font-weight: 700;
+		padding: 8px 10px;
+		border-radius: var(--radius);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-size: 12px;
 		cursor: pointer;
+		min-width: 88px;
+		text-align: center;
 	}
+
 	.theme:hover {
-		filter: brightness(0.98);
+		background: color-mix(in srgb, var(--surface) 85%, var(--text));
 	}
-	:root[data-theme='dark'] .theme:hover {
-		filter: brightness(1.08);
+
+	.theme:active {
+		transform: translateY(1px);
+	}
+
+	@media (max-width: 520px) {
+		.nav {
+			padding: 10px 12px;
+		}
+		.links {
+			gap: 4px;
+		}
+		.nav a {
+			padding: 8px 8px;
+		}
 	}
 </style>

@@ -8,6 +8,7 @@
 		computeWinStreakDays,
 		type WeeklySummary
 	} from '$lib/domain/weekly';
+	import { formatRatingLabel, WEEKLY_RATING_LABELS } from '$lib/domain/ratingLabels';
 
 	let loading = true;
 	let summaries: WeeklySummary[] = [];
@@ -73,7 +74,10 @@
 			<div class="kv"><span>Training points</span><span>{currentWeek.trainingPoints}</span></div>
 			<div class="kv"><span>Wins</span><span>{currentWeek.wins}</span></div>
 			<div class="kv"><span>Missed days</span><span>{currentWeek.missedDays}</span></div>
-			<div class="kv"><span>Weekly rating</span><span>{currentWeek.weeklyRating}</span></div>
+			<div class="kv">
+				<span>Weekly rating</span>
+				<span>{formatRatingLabel(WEEKLY_RATING_LABELS[currentWeek.weeklyRating])}</span>
+			</div>
 			<div class="kv"><span>Deload</span><span>{currentWeek.deload ? 'yes' : 'no'}</span></div>
 			{#if currentWeek.deload && currentWeek.deloadReasons.length > 0}
 				<div class="kv">
@@ -96,7 +100,10 @@
 				<div class="kv"><span>Training points</span><span>{s.trainingPoints}</span></div>
 				<div class="kv"><span>Wins</span><span>{s.wins}</span></div>
 				<div class="kv"><span>Missed days</span><span>{s.missedDays}</span></div>
-				<div class="kv"><span>Weekly rating</span><span>{s.weeklyRating}</span></div>
+				<div class="kv">
+					<span>Weekly rating</span>
+					<span>{formatRatingLabel(WEEKLY_RATING_LABELS[s.weeklyRating])}</span>
+				</div>
 				<div class="kv"><span>Deload</span><span>{s.deload ? 'yes' : 'no'}</span></div>
 			</section>
 		{/each}
@@ -106,17 +113,33 @@
 <style>
 	.card {
 		border: 1px solid var(--border);
-		border-radius: 8px;
+		border-radius: var(--radius);
 		padding: 12px;
 		margin: 12px 0;
 		background: var(--surface);
 	}
+
+	.card h2 {
+		margin: 0 0 8px;
+		font-size: 13px;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+
 	.highlight {
 		border-color: var(--primary);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
 	}
+
 	.kv {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: baseline;
 		justify-content: space-between;
-		padding: 4px 0;
+		padding: 6px 0;
+		gap: 12px;
+		font-family: var(--font-mono);
+		font-variant-numeric: tabular-nums;
 	}
 </style>

@@ -1,7 +1,13 @@
 import { computeDayScores, type DayScores } from './scoring';
 import type { DayLog, IsoDateString } from './types';
 
-export type WeeklyRating = 'minimum' | 'solid' | 'great' | 'amazing' | 'above_and_beyond';
+export type WeeklyRating =
+	| 'needs_improvement'
+	| 'minimum'
+	| 'solid'
+	| 'great'
+	| 'amazing'
+	| 'above_and_beyond';
 
 export type WeeklyStreaks = {
 	winStreakDays: number;
@@ -142,7 +148,8 @@ function computeWeeklyRating(trainingPoints: number, deload: boolean): WeeklyRat
 	if (trainingPoints >= t.amazing) return 'amazing';
 	if (trainingPoints >= t.great) return 'great';
 	if (trainingPoints >= t.solid) return 'solid';
-	return 'minimum';
+	if (trainingPoints >= t.minimum) return 'minimum';
+	return 'needs_improvement';
 }
 
 export function computeWeeklySummary(

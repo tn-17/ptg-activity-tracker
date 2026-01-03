@@ -6,11 +6,11 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		SvelteKitPWA({
-			registerType: 'autoUpdate',
+			registerType: 'prompt',
 			injectRegister: 'auto',
 			manifest: {
 				id: '/ptg-activity-tracker/',
-				name: 'PTG',
+				name: 'PTG Activity Tracker',
 				short_name: 'PTG',
 				description: 'Daily training scoring and tracking.',
 				start_url: '/ptg-activity-tracker/',
@@ -20,19 +20,25 @@ export default defineConfig({
 				theme_color: '#111827',
 				icons: [
 					{
-						src: '/ptg-activity-tracker/icons/pwa-192x192.png',
+						src: '/ptg-activity-tracker/pwa-192x192.png',
 						sizes: '192x192',
 						type: 'image/png',
 						purpose: 'any'
 					},
 					{
-						src: '/ptg-activity-tracker/icons/pwa-512x512.png',
+						src: '/ptg-activity-tracker/pwa-512x512.png',
 						sizes: '512x512',
 						type: 'image/png',
 						purpose: 'any'
 					},
 					{
-						src: '/ptg-activity-tracker/icons/maskable-512x512.png',
+						src: '/ptg-activity-tracker/manifest-icon-192.maskable.png',
+						sizes: '192x192',
+						type: 'image/png',
+						purpose: 'maskable'
+					},
+					{
+						src: '/ptg-activity-tracker/manifest-icon-512.maskable.png',
 						sizes: '512x512',
 						type: 'image/png',
 						purpose: 'maskable'
@@ -40,17 +46,18 @@ export default defineConfig({
 				]
 			},
 			workbox: {
-				navigateFallback: '/ptg-activity-tracker/',
-				additionalManifestEntries: [{ url: '/ptg-activity-tracker/', revision: null }],
+				navigateFallback: '/ptg-activity-tracker/200.html',
+				additionalManifestEntries: [],
 				navigateFallbackDenylist: [
 					/^\/api\//,
 					/\/assets\//,
-					/\/_app\//,
+					/\/app\//,
 					/\.map$/,
 					/\.(?:png|jpg|jpeg|svg|gif|webp|ico)$/,
 					/\.(?:js|css|woff2?)$/
 				],
-				globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,woff2}']
+				globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,woff2}'],
+				cleanupOutdatedCaches: true
 			},
 			devOptions: {
 				enabled: true

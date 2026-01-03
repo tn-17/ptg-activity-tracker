@@ -85,9 +85,9 @@ Training points = Mobility + Conditioning + Strength (capped at 63)
 - ❌ Missed: MED not achieved (regardless of points)
 - 👍 Okay: MED achieved, 25 <= training points < 37 (40–59%), low effort day
 - ✅ Solid: MED achieved, 37 <= training points < 47 (60–74%), moderate effort day
-- ⭐ Great: MED achieved, 47 <= training points < 53 (75–84%), high effort day
+- 🌟 Great: MED achieved, 47 <= training points < 53 (75–84%), high effort day
 - 🔥 Amazing: MED achieved, 53 <= training points < 60 (85–94%), very high effort day
-- 🎆 Above & Beyond: MED achieved, 60 <= training points <= 63 (95–100%), exceptional effort day
+- 🚀 Above & Beyond: MED achieved, 60 <= training points <= 63 (95–100%), exceptional effort day
 
 ### Lifestyle Rating
 
@@ -98,7 +98,7 @@ Lifestyle points = Nutrition + Miscellaneous (capped at 45)
 - ❌ Missed: lifestyle points < 12
 - 👍 Okay: 12 <= lifestyle points < 22
 - ✅ Solid: 22 <= lifestyle points < 32
-- ⭐ Great: 32 <= lifestyle points <= 45
+- 🌟 Great: 32 <= lifestyle points <= 45
 
 ## 🔋 Training Readiness
 
@@ -118,11 +118,12 @@ Each day, you will record your body state as one of the following training readi
 
 | Total | Rating | Meaning                      |
 | ----: | ------ | ---------------------------- |
+| < 175 | ❌     | Needs improvement            |
 |   175 | 👍     | Minimum weekly effort        |
 |   259 | ✅     | Solid weekly effort          |
-|   329 | ⭐     | Great weekly effort          |
+|   329 | 🌟     | Great weekly effort          |
 |   371 | 🔥     | Amazing weekly effort        |
-|  ~420 | 🎆     | Above & beyond weekly effort |
+|  ~420 | 🚀     | Above & beyond weekly effort |
 
 ## 🛌 Deloading
 

@@ -8,6 +8,8 @@
 </script>
 
 <svelte:head>
+	<title>PTG Activity Tracker</title>
+
 	<link rel="icon" href={favicon} />
 
 	<link rel="manifest" href="{base}/manifest.webmanifest" />
@@ -16,7 +18,7 @@
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="apple-mobile-web-app-title" content="PTG" />
+	<meta name="apple-mobile-web-app-title" content="PTG Activity Tracker" />
 	<link rel="apple-touch-icon" href="{base}/icons/apple-touch-icon.png" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />

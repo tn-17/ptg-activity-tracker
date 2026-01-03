@@ -23,36 +23,48 @@
 		</script>
 		<style>
 			:root {
-				--bg: #f9fafb;
+				/* Design tokens */
+				--bg: #f4f4f5;
 				--surface: #ffffff;
-				--text: #111827;
-				--muted: #6b7280;
-				--border: #e5e7eb;
-				--primary: #111827;
+				--text: #09090b;
+				--muted: #52525b;
+				--border: #a1a1aa;
+				--primary: #2563eb;
 				--primary-text: #ffffff;
+				--radius: 4px;
+
+				/* Typography */
+				--font-body: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+				--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
 				color-scheme: light;
-				font-family:
-					system-ui,
-					-apple-system,
-					Segoe UI,
-					Roboto,
-					Helvetica,
-					Arial,
-					sans-serif;
+				font-family: var(--font-body);
 				background: var(--bg);
 				color: var(--text);
 			}
 
 			:root[data-theme='dark'] {
-				--bg: #000000;
-				--surface: #0a0a0a;
-				--text: #f9fafb;
-				--muted: #9ca3af;
-				--border: #1f2937;
-				--primary: #f9fafb;
-				--primary-text: #000000;
+				--bg: #09090b;
+				--surface: #18181b;
+				--text: #f4f4f5;
+				--muted: #a1a1aa;
+				--border: #3f3f46;
+				--primary: #3b82f6;
+				--primary-text: #ffffff;
 				color-scheme: dark;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			*::selection {
+				background: color-mix(in srgb, var(--primary) 25%, transparent);
+			}
+
+			*:focus-visible {
+				outline: 2px solid var(--primary);
+				outline-offset: 2px;
 			}
 
 			body {
@@ -61,6 +73,7 @@
 				color: var(--text);
 				min-height: 100vh;
 				min-height: 100dvh;
+				line-height: 1.4;
 			}
 
 			a {
@@ -72,6 +85,13 @@
 			textarea,
 			button {
 				font: inherit;
+			}
+
+			/* Prefer visible borders over browser defaults */
+			input,
+			select,
+			textarea {
+				accent-color: var(--primary);
 			}
 		</style>
 	</head>
