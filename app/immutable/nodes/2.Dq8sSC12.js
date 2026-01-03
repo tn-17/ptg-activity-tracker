@@ -1,0 +1,1 @@
+import{f as r,a as t}from"../chunks/CJ8-a8LZ.js";import{i as m}from"../chunks/BRPbGBdo.js";import{p as s,o as i,a as f}from"../chunks/BTsEBZ5s.js";import{g as n}from"../chunks/awQBRni4.js";import{b as e}from"../chunks/D3y6TuXk.js";var g=r("<p>Redirecting…</p>");function h(o,a){s(a,!1),i(()=>{n(`${e}/log`)}),m();var p=g();t(o,p),f()}export{h as component};
