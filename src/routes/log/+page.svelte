@@ -160,7 +160,7 @@
 		autosaveTimer = setTimeout(() => {
 			autosaveTimer = null;
 			void save('autosave');
-		}, 650);
+		}, 500);
 	}
 
 	$: queueAutosave();
@@ -181,7 +181,23 @@
 		return isoDateFromDate(dt);
 	}
 
-	function goToDate(next: IsoDateString) {
+	async function flushPendingSave() {
+		// If there's a debounced save waiting, force it to run now.
+		if (autosaveTimer) {
+			clearTimeout(autosaveTimer);
+			autosaveTimer = null;
+		}
+
+		const snapshot = computeSnapshot();
+		if (snapshot === lastSavedSnapshot) return;
+
+		await save('manual');
+	}
+
+	async function goToDate(next: IsoDateString) {
+		// Ensure we persist edits before switching days.
+		await flushPendingSave();
+
 		const url = new URL($page.url);
 		url.searchParams.set('date', next);
 		goto(url.pathname + url.search, { replaceState: false, keepFocus: true, noScroll: true });
@@ -189,6 +205,18 @@
 
 	onMount(() => {
 		void loadForDate(date);
+
+		const onVisibilityChange = () => {
+			// When navigating away / switching tabs, flush any pending debounced save.
+			if (document.visibilityState !== 'visible') {
+				void flushPendingSave();
+			}
+		};
+		document.addEventListener('visibilitychange', onVisibilityChange);
+
+		return () => {
+			document.removeEventListener('visibilitychange', onVisibilityChange);
+		};
 	});
 
 	let lastLoadedDate: IsoDateString | null = null;
@@ -204,7 +232,7 @@
 	<div class="dateControl">
 		<label>
 			<span>Date</span>
-			<input type="date" bind:value={date} />
+			<input type="date" bind:value={date} on:change={() => void flushPendingSave()} />
 		</label>
 
 		<div class="dateNav" aria-label="Day navigation">
