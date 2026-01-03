@@ -8,6 +8,7 @@
 		storeThemePreference,
 		type ThemePreference
 	} from '$lib/theme';
+	import { resolve } from '$app/paths';
 
 	$: pathname = String($page.url.pathname);
 
@@ -42,13 +43,17 @@
 	onDestroy(() => {
 		mql?.removeEventListener('change', onMqlChange);
 	});
+
+	const logHref = resolve('/log');
+	const historyHref = resolve('/history');
+	const weekHref = resolve('/week');
 </script>
 
 <nav class="nav">
 	<div class="links">
-		<a href="/log" class:active={pathname === '/log'}>Log</a>
-		<a href="/history" class:active={pathname === '/history'}>History</a>
-		<a href="/week" class:active={pathname === '/week'}>Week</a>
+		<a href={logHref} class:active={pathname === '/log'}>Log</a>
+		<a href={historyHref} class:active={pathname === '/history'}>History</a>
+		<a href={weekHref} class:active={pathname === '/week'}>Week</a>
 	</div>
 
 	<button
