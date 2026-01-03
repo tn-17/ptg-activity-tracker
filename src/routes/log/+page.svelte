@@ -212,10 +212,18 @@
 				void flushPendingSave();
 			}
 		};
+
+		const onPageHide = () => {
+			// pagehide is the most reliable place to persist state before refresh/navigation.
+			void flushPendingSave();
+		};
+
 		document.addEventListener('visibilitychange', onVisibilityChange);
+		window.addEventListener('pagehide', onPageHide);
 
 		return () => {
 			document.removeEventListener('visibilitychange', onVisibilityChange);
+			window.removeEventListener('pagehide', onPageHide);
 		};
 	});
 
