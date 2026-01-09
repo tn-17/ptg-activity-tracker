@@ -130,6 +130,13 @@ export const ACTIVITY_DEFINITIONS: ActivityDefinition[] = [
 		group: 'Nutrition'
 	},
 	{
+		key: 'nutrition_creatine',
+		label: 'Take creatine',
+		category: 'nutrition',
+		points: 2,
+		group: 'Nutrition'
+	},
+	{
 		key: 'misc_wake_up_early',
 		label: 'Wake up early',
 		category: 'miscellaneous',
